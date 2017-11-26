@@ -37,7 +37,7 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-    <div th:if="${searchResults} and ${searchResults.size()}">
+    <div th:if="${searchResults}">
         <h3 th:text="${searchResults.size()+' Result(s)'}"></h3>
         <table th:each="searchResult : ${searchResults}">
             <col width="200" />
