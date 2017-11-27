@@ -44,7 +44,12 @@
             <col width="500" />
             <tr th:each="field, idx : ${searchResult}" th:class="${idx.odd} ? 'odd'">
                 <th th:text="${#strings.capitalizeWords(field.key)}"></th>
-                <td th:text="${field.value}"></td>
+                <div th:switch="${field.key}" th:fragment="hyperlink">
+                    <td th:case="'name'" th:text="${field.value}"></td>
+                    <td th:case="*">
+                        <a th:text="${field.value}" th:href="@{/list/jobs(column=${field.key},value=${field.value})}"></a>
+                    </td>
+                </div>
             </tr>
             <br/>
         </table>
